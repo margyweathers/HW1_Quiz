@@ -7,17 +7,34 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.margy.hw1_quiz.MainActivity">
+    tools:context="com.example.margy.hw1_quiz.MainActivity"
+    android:background="#5a5a5a">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Welcome To My Dispicable Quiz!"
+        android:text="Welcome To My Despicable Quiz!"
         android:id="@+id/welcome_message"
         style="@style/Base.TextAppearance.AppCompat.Display2"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="109dp"
-        android:gravity="center" />
+        android:gravity="center"
+        android:textColor="#f9f45b" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play"
+        android:id="@+id/play"
+        android:layout_below="@+id/welcome_message"
+        android:layout_marginTop="75dp"
+        android:background="#f9f45b"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:clickable="true"
+        android:enabled="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

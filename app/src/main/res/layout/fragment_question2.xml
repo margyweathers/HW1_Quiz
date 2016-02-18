@@ -1,0 +1,83 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.margy.hw1_quiz.question2"
+    android:background="#5a5a5a">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="What&apos;s so fluffy???"
+        android:id="@+id/question2"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#f9f45b"
+        android:layout_marginTop="275dp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="261dp"
+        android:id="@+id/imageView"
+        android:layout_gravity="center_horizontal|top"
+        android:src="@drawable/Agnus" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Doggy"
+        android:id="@+id/doggy"
+        android:layout_gravity="center_horizontal|bottom"
+        android:checked="false"
+        android:layout_marginBottom="170dp"
+        style="@style/Base.TextAppearance.AppCompat.Large" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pony"
+        android:id="@+id/pony"
+        android:layout_gravity="center_horizontal|bottom"
+        android:checked="false"
+        android:layout_marginBottom="140dp"
+        style="@style/Base.TextAppearance.AppCompat.Large" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Unicorn"
+        android:id="@+id/checkBox"
+        android:layout_gravity="center_horizontal|bottom"
+        style="@style/Base.TextAppearance.AppCompat.Large"
+        android:checked="false"
+        android:layout_marginBottom="110dp" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Koala"
+        android:id="@+id/checkBox2"
+        android:layout_gravity="center_horizontal|bottom"
+        android:checked="false"
+        style="@style/Base.TextAppearance.AppCompat.Large"
+        android:layout_marginBottom="80dp" />
+
+    <Button
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="Finish!"
+        android:id="@+id/finish"
+        android:layout_below="@+id/welcome_message"
+        android:background="#f9f45b"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:clickable="true"
+        android:enabled="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="25dp" />
+
+</FrameLayout>
