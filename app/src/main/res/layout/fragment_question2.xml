@@ -7,6 +7,18 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_gravity="center_horizontal|top"
+        android:src="@drawable/agnus"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,29 +28,8 @@
         android:layout_gravity="center_horizontal"
         android:textColor="#f9f45b"
         android:layout_below="@+id/imageView"
-        android:layout_centerHorizontal="true" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:layout_gravity="center_horizontal|top"
-        android:src="@drawable/agnus"
-        android:layout_alignParentTop="false" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Finish!"
-        android:id="@+id/finish"
-        android:background="#f9f45b"
-        android:clickable="true"
-        android:enabled="true"
-        android:layout_gravity="center_horizontal|bottom"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="25dp" />
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentEnd="false" />
 
     <RadioGroup
         android:layout_width="wrap_content"
@@ -54,7 +45,8 @@
             android:layout_gravity="left|bottom|center_horizontal"
             android:checked="false"
             android:layout_below="@+id/question2"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            style="@style/Base.TextAppearance.AppCompat.Large" />
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -65,7 +57,8 @@
             android:checked="false"
             android:layout_below="@+id/doggy"
             android:layout_alignLeft="@+id/doggy"
-            android:layout_alignStart="@+id/doggy" />
+            android:layout_alignStart="@+id/doggy"
+            style="@style/Base.TextAppearance.AppCompat.Large" />
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -76,8 +69,23 @@
             android:checked="false"
             android:layout_below="@+id/pony"
             android:layout_alignLeft="@+id/doggy"
-            android:layout_alignStart="@+id/doggy" />
+            android:layout_alignStart="@+id/doggy"
+            style="@style/Base.TextAppearance.AppCompat.Large" />
 
     </RadioGroup>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Finish!"
+        android:id="@+id/finish"
+        android:background="#f9f45b"
+        android:clickable="true"
+        android:enabled="true"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="25dp" />
 
 </RelativeLayout>
