@@ -73,8 +73,8 @@ public class Question1 extends Fragment {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Note: no answer for first question is marked wrong
                 stringAnswer = answer.getText().toString();
+                // If the user did not enter an answer
                 if (stringAnswer.equals("")){
                     getFragmentManager()
                             .beginTransaction()
@@ -82,17 +82,20 @@ public class Question1 extends Fragment {
                             .addToBackStack(null)
                             .commit();
                 }
-                else if (stringAnswer.equalsIgnoreCase("Dave")){
-                    correct = 1;
-                }
+
                 else{
-                    correct = 0;
+                    if (stringAnswer.equalsIgnoreCase("Dave")){
+                        correct = 1;
+                    }
+                    else{
+                        correct = 0;
+                    }
+                    getFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.main_fragment_container, question2.newInstance(correct, total))
+                            .addToBackStack(null)
+                            .commit();
                 }
-                getFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.main_fragment_container, question2.newInstance(correct, total))
-                        .addToBackStack(null)
-                        .commit();
             }
         });
 
