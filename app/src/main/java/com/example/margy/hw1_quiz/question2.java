@@ -22,12 +22,14 @@ import android.widget.RadioButton;
 public class question2 extends Fragment {
 
     private static final String ARG_NUMBER_CORRECT = "param1";
+    private static final String ARG_TOTAL_QUESTIONS = "param2";
 
     private RadioButton doggy;
     private RadioButton pony;
     private RadioButton unicorn;
     private Button finishButton;
     private int correct;
+    private int total;
 
     public question2() {
         // Required empty public constructor
@@ -41,10 +43,11 @@ public class question2 extends Fragment {
      * @return A new instance of fragment question2.
      */
     // TODO: Rename and change types and number of parameters
-    public static question2 newInstance(int correct) {
+    public static question2 newInstance(int correct, int total) {
         question2 fragment = new question2();
         Bundle args = new Bundle();
         args.putInt(ARG_NUMBER_CORRECT, correct);
+        args.putInt(ARG_TOTAL_QUESTIONS, total);
         fragment.setArguments(args);
         return fragment;
     }
@@ -55,6 +58,7 @@ public class question2 extends Fragment {
 
         if(getArguments() != null){
             correct = getArguments().getInt(ARG_NUMBER_CORRECT);
+            total = getArguments().getInt(ARG_TOTAL_QUESTIONS);
         }
     }
 
@@ -82,7 +86,7 @@ public class question2 extends Fragment {
                 if (!doggy.isChecked() && !pony.isChecked() && !unicorn.isChecked()){
                     getFragmentManager()
                             .beginTransaction()
-                            .replace(R.id.main_fragment_container, question2.newInstance(correct))
+                            .replace(R.id.main_fragment_container, question2.newInstance(correct,total))
                             .addToBackStack(null)
                             .commit();
                 }
@@ -102,13 +106,13 @@ public class question2 extends Fragment {
         new AlertDialog.Builder(getActivity())
                 .setCancelable(true)
                 .setTitle("Score:")
-                .setMessage(correct + "/2")
+                .setMessage(correct + "/" + total)
                 .setPositiveButton("Restart", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         getFragmentManager()
                                 .beginTransaction()
-                                .replace(R.id.main_fragment_container, Question1.newInstance())
+                                .replace(R.id.main_fragment_container, Question1.newInstance(0,total))
                                 .addToBackStack(null)
                                 .commit();
                     }

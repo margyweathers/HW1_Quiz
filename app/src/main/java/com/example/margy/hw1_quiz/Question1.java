@@ -1,7 +1,5 @@
 package com.example.margy.hw1_quiz;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,8 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.content.Intent;
-
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,9 +15,13 @@ import android.content.Intent;
  */
 public class Question1 extends Fragment {
 
+    private static final String ARG_NUMBER_CORRECT = "param1";
+    private static final String ARG_TOTAL_QUESTIONS = "param2";
+
     private EditText answer;
     private String stringAnswer;
     private int correct;
+    private int total;
     private Button nextButton;
 
     public Question1() {
@@ -34,16 +34,24 @@ public class Question1 extends Fragment {
      *
      * @return A new instance of fragment Question1.
      */
-    public static Question1 newInstance() {
+    public static Question1 newInstance(int correct, int total) {
         Question1 fragment = new Question1();
         Bundle args = new Bundle();
+        args.putInt(ARG_NUMBER_CORRECT, correct);
+        args.putInt(ARG_TOTAL_QUESTIONS, total);
         fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
+        if(getArguments() != null){
+            correct = getArguments().getInt(ARG_NUMBER_CORRECT);
+            total = getArguments().getInt(ARG_TOTAL_QUESTIONS);
+        }
     }
 
     @Override
@@ -54,6 +62,7 @@ public class Question1 extends Fragment {
         view = inflater.inflate(R.layout.fragment_question1, container, false);
 
         nextButton = (Button) view.findViewById(R.id.next);
+        answer = (EditText) view.findViewById(R.id.answer);
 
         return view;
     }
@@ -64,18 +73,16 @@ public class Question1 extends Fragment {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // If the user has not entered an answer
-                if ((EditText) view.findViewById(R.id.answer) == null){
+                // Note: no answer for first question is marked wrong
+                stringAnswer = answer.getText().toString();
+                if (stringAnswer.equals("")){
                     getFragmentManager()
                             .beginTransaction()
-                            .replace(R.id.main_fragment_container, Question1.newInstance())
+                            .replace(R.id.main_fragment_container, Question1.newInstance(correct, total))
                             .addToBackStack(null)
                             .commit();
                 }
-
-                answer = (EditText) view.findViewById(R.id.answer);
-                stringAnswer = answer.getText().toString();
-                if (stringAnswer.equalsIgnoreCase("Dave")){
+                else if (stringAnswer.equalsIgnoreCase("Dave")){
                     correct = 1;
                 }
                 else{
@@ -83,7 +90,7 @@ public class Question1 extends Fragment {
                 }
                 getFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.main_fragment_container, Question1.newInstance())
+                        .replace(R.id.main_fragment_container, question2.newInstance(correct, total))
                         .addToBackStack(null)
                         .commit();
             }

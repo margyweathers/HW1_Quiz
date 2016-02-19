@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 public class QuizActivity extends AppCompatActivity {
 
+    private static final int TOTAL_QUESTIONS = 2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -12,7 +13,7 @@ public class QuizActivity extends AppCompatActivity {
 
         getFragmentManager()
                 .beginTransaction()
-                .replace(R.id.main_fragment_container, Question1.newInstance())
+                .replace(R.id.main_fragment_container, Question1.newInstance(0, TOTAL_QUESTIONS))
                 .addToBackStack(null)
                 .commit();
 
